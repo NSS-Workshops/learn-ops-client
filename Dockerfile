@@ -1,5 +1,5 @@
 # Use Node.js 22.13.0 as specified in package.json
-FROM --platform=linux/amd64 node:22.13.0
+FROM node:22.13.0
 
 # Set working directory
 WORKDIR /app
