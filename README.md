@@ -2,12 +2,7 @@
 
 ## Getting Started
 
-1. Fork the repo
-2. Clone the repo
-3. `cd` to project directory
-4. Run `npm install`
-5. Run `npm start`
+1. Make sure you are in the `learningplatform` directory
+2. Clone this repo
 
-## Deploying
-
-Read the [deployment instructions](./DEPLOY.md)
+That's it. No other configuration or set up is needed.
