@@ -76,6 +76,9 @@ export const Callback = () => {
 
     useEffect(() => {
         if (code) {
+            const usedKey = `oauth_used_${code}`
+            if (sessionStorage.getItem(usedKey)) return
+            sessionStorage.setItem(usedKey, "1")
             fetchTokenWithCode(code)
         }
     }, [code])
