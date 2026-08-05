@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { Button, TextField } from '@radix-ui/themes'
 import { FrameIcon } from '@radix-ui/react-icons'
 import simpleAuth from "../../auth/simpleAuth"
@@ -8,8 +8,10 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min.js"
 import { Loading } from "../../Loading.js"
 import MemberId from "./images/get-slack-member-id.gif"
 import "../Dashboard.css"
+import { SettingsContext } from "../../providers/SettingsProvider.js"
 
 export const SlackMemberId = () => {
+    const { mimic } = useContext(SettingsContext)
     const { getCurrentUser, getProfile } = simpleAuth()
     const [user, setUser] = useState({})
     const [slackId, setId] = useState("")
@@ -17,7 +19,7 @@ export const SlackMemberId = () => {
 
     useEffect(() => {
         const syncUser = () => {
-            getProfile().then(() => {
+            getProfile(null, null, null, mimic).then(() => {
                 setUser(getCurrentUser())
             })
         }
